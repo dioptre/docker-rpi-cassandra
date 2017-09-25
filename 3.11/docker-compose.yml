@@ -7,6 +7,13 @@ services:
     image: rpi-cassandra:3.11
     volumes:
       - /var/lib/cassandra:/var/lib/cassandra
+    environment:
+      ##################################################################
+      # Extra parameters to enable JMX server for monitoring purposes
+      - LOCAL_JMX=no
+      # TODO: better to have hostname dynamically loaded.
+      - JVM_EXTRA_OPTS=-Djava.rmi.server.hostname=192.168.2.168
+      ##################################################################
     ports:
       # 7000: intra-node communication
       - "7000:7000"

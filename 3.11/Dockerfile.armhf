@@ -132,10 +132,15 @@ RUN set -ex; \
 # https://issues.apache.org/jira/browse/CASSANDRA-11661
 	sed -ri 's/^(JVM_PATCH_VERSION)=.*/\1=25/' "$CASSANDRA_CONFIG/cassandra-env.sh";
 
-# C* modification for Raspberry PI
+# C* modification for Rpi: Decrease heap usage
 RUN set -ex; \
 	sed -ri 's/^-Xms4g$/-Xms384m/' "$CASSANDRA_CONFIG/jvm.options"; \
 	sed -ri 's/^-Xmx4g$/-Xmx384m/' "$CASSANDRA_CONFIG/jvm.options";
+
+# C* modification for Rpi: Disable jmx authentication
+RUN set -ex; \
+	sed -i 's/JVM_OPTS="$JVM_OPTS -Dcom.sun.management.jmxremote.authenticate=true"/JVM_OPTS="$JVM_OPTS -Dcom.sun.management.jmxremote.authenticate=false"/g' $CASSANDRA_CONFIG/cassandra-env.sh; \
+	sed -i 's/JVM_OPTS="$JVM_OPTS -Dcom.sun.management.jmxremote.password.file=\/etc\/cassandra\/jmxremote.password"//g' $CASSANDRA_CONFIG/cassandra-env.sh;
 
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
