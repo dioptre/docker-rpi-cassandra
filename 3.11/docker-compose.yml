@@ -14,6 +14,9 @@ services:
       # TODO: better to have hostname dynamically loaded.
       - JVM_EXTRA_OPTS=-Djava.rmi.server.hostname=192.168.2.168
       ##################################################################
+      # Expose the C* broadcast address for seed connection
+      - CASSANDRA_BROADCAST_ADDRESS=192.168.2.168
+      #- CASSANDRA_SEEDS=192.168.2.xx
     ports:
       # 7000: intra-node communication
       - "7000:7000"
