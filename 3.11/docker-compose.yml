@@ -1,9 +1,11 @@
 version: '3'
 services:
-  cassandra:
+  package:    
     build:
       context: ./
       dockerfile: Dockerfile.armhf
+    image: mcfongtw/rpi-cassandra:test
+  cassandra:
     image: mcfongtw/rpi-cassandra:test
     volumes:
       - /var/lib/cassandra:/var/lib/cassandra
