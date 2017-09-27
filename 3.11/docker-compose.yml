@@ -4,9 +4,9 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile.armhf
-    image: mcfongtw/rpi-cassandra:test
+    image: mcfongtw/rpi-cassandra:3.11
   cassandra:
-    image: mcfongtw/rpi-cassandra:test
+    image: mcfongtw/rpi-cassandra:3.11
     volumes:
       - /var/lib/cassandra:/var/lib/cassandra
     environment:
