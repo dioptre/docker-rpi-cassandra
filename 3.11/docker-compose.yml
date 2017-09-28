@@ -1,6 +1,6 @@
 version: '3'
 services:
-  package:    
+  build_3.11: 
     build:
       context: ./
       dockerfile: Dockerfile.armhf
@@ -31,6 +31,14 @@ services:
       ################################################################## 
       # Number of tokens assigned to this node on the ring using vnodes. 
       - CASSANDRA_NUM_TOKENS=8
+      ##################################################################
+
+      ##################################################################
+      # Heap size
+      #    Xmx=Xms=MAX_HEAP_SIZE
+      #    Xmn=HEAP_NEWSIZE
+      - MAX_HEAP_SIZE=384m
+      - HEAP_NEWSIZE=96m
       ##################################################################
     ports:
       # 7000: intra-node communication
