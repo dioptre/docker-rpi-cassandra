@@ -46,6 +46,7 @@ if [ "$1" = 'cassandra' ]; then
 	; do
 		var="CASSANDRA_${yaml^^}"
 		val="${!var}"
+		echo "$var: $val"
 		if [ "$val" ]; then
 			sed -ri 's/^(# )?('"$yaml"':).*/\2 '"$val"'/' "$CASSANDRA_CONFIG/cassandra.yaml"
 		fi

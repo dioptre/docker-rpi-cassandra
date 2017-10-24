@@ -16,7 +16,8 @@ Most functions belows are identical to [Docker official Cassandra image](https:/
 
 ## Latest Supported Versions
 Supported tags plus associated dockerfile and docker compose files respective:
-* 3.11.1 ([Dockerfile](https://github.com/mcfongtw/docker-rpi-cassandra/blob/rpi-cassandra/3.11/Dockerfile.armhf) / [Docker Compose](https://github.com/mcfongtw/docker-rpi-cassandra/blob/rpi-cassandra/3.11/docker-compose.yml) )
+* 3.11 / 3.11.1 ([Dockerfile](https://github.com/mcfongtw/docker-rpi-cassandra/blob/rpi-cassandra/3.11/Dockerfile.armhf) / [Docker Compose](https://github.com/mcfongtw/docker-rpi-cassandra/blob/rpi-cassandra/3.11/docker-compose.yml) )
+* 3.0 / 3.0.15 ([Dockerfile](https://github.com/mcfongtw/docker-rpi-cassandra/blob/rpi-cassandra/3.0/Dockerfile.armhf) / [Docker Compose](https://github.com/mcfongtw/docker-rpi-cassandra/blob/rpi-cassandra/3.0/docker-compose.yml) )
 * 2.2 / 2.2.11 ([Dockerfile](https://github.com/mcfongtw/docker-rpi-cassandra/blob/rpi-cassandra/2.2/Dockerfile.armhf) / [Docker Compose](https://github.com/mcfongtw/docker-rpi-cassandra/blob/rpi-cassandra/2.2/docker-compose.yml))
 
 ## Configurations
@@ -63,6 +64,13 @@ Assume the 2nd node has public address: 192.168.0.2
    * CASSANDRA_BROADCAST_ADDRESS=192.168.0.2
    * CASSANDRA_SEEDS=192.168.0.1
 2. Execute the command: `docker-compose run --service-ports -d cassandra`
+
+### How to Upgrade an Existing Cluster
+Since the Cassandra data is stored on rpi host, we could perform rolling upgrade by replacing the Cassandra binaries / containers:
+1. One node at a time, remove the current Cassandra container then bring up a Cassandra container of newer version.
+2. Repeat the last step until all nodes / containers are running on the same version.
+3. One node at a time, perform upgradesstable 
+4. Repeat the last step, until all nodes / container have the same version of sstable.
 
 ### Perform cqlsh / nodetool Operation Remotely
 CQL shell:
