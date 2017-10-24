@@ -1,7 +1,7 @@
 ## Overview
 This is a self project hosting a Cassandra cluster on top of rpi boards and each rpi node services a Cassandra container.
 
-Due to architectural difference, this container **must be run on an ARM based SoC board**, and should not run on a x86_64 machine  - unless you have a ARM based system hosted on top of a virtual machine. The base image is based on ARM architecture.
+The base image is based on ARM architecture; therefore, this container **must be run on an ARM based SoC board**, and should not run on a x86_64 machine  - unless you have a ARM based system hosted on top of a virtual machine. There are some nice [tutorial on Raspberry PI emulation on PC](http://www.makeuseof.com/tag/emulate-raspberry-pi-pc/).
 
 You may refer to this [git repo](https://github.com/mcfongtw/docker-rpi-cassandra/tree/rpi-cassandra), cloned from [official git repo](https://github.com/docker-library/cassandra) with several modifications including base image being changed to Raspbian.
 

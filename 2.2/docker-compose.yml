@@ -9,9 +9,9 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile.armhf
-    image: mcfongtw/rpi-cassandra:2.2.10
+    image: mcfongtw/rpi-cassandra:2.2.11
   cassandra:
-    image: mcfongtw/rpi-cassandra:2.2.10
+    image: mcfongtw/rpi-cassandra:2.2.11
     volumes:
       - /var/lib/cassandra:/var/lib/cassandra
     environment:
