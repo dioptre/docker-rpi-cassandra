@@ -14,10 +14,10 @@ Most functions belows are identical to [Docker official Cassandra image](https:/
 2. Some tunable configurations are adjusted to fit in Raspberry Pi 3 hardware. See details below.
 3. Most of the example and commands are heavy docker-compose focused, as it is personal preference over plain old docker cli commands.
 
-## Supported Versions
+## Latest Supported Versions
 Supported tags plus associated dockerfile and docker compose files respective:
-* 3.11 ([Dockerfile](https://github.com/mcfongtw/docker-rpi-cassandra/blob/rpi-cassandra/3.11/Dockerfile.armhf) / [Docker Compose](https://github.com/mcfongtw/docker-rpi-cassandra/blob/rpi-cassandra/3.11/docker-compose.yml) )
-* 2.2 / 2.2.10 ([Dockerfile](https://github.com/mcfongtw/docker-rpi-cassandra/blob/rpi-cassandra/2.2/Dockerfile.armhf) / [Docker Compose](https://github.com/mcfongtw/docker-rpi-cassandra/blob/rpi-cassandra/2.2/docker-compose.yml))
+* 3.11.1 ([Dockerfile](https://github.com/mcfongtw/docker-rpi-cassandra/blob/rpi-cassandra/3.11/Dockerfile.armhf) / [Docker Compose](https://github.com/mcfongtw/docker-rpi-cassandra/blob/rpi-cassandra/3.11/docker-compose.yml) )
+* 2.2 / 2.2.11 ([Dockerfile](https://github.com/mcfongtw/docker-rpi-cassandra/blob/rpi-cassandra/2.2/Dockerfile.armhf) / [Docker Compose](https://github.com/mcfongtw/docker-rpi-cassandra/blob/rpi-cassandra/2.2/docker-compose.yml))
 
 ## Configurations
 
